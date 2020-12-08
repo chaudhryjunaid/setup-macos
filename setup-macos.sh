@@ -50,11 +50,11 @@ fi
 
 if [ -z $(ls -A -- "$installdir") ]; then
     echo "Cloning setup repo into $installdir"
-    git clone https://github.com/chaudhryjunaid/setup-macos.git $installdir
-else if [ ! -d "$installdir/.git" ]; then
+    git clone https://github.com/chaudhryjunaid/setup-macos.git "$installdir"
+elif [ ! -d "$installdir/.git" ]; then
     echo "Error: $installdir already contains some other files. Please empty this directory and try again!"
     exit 1
-else if [ ! -f "${installdir}/macos-setup.yml"]; then
+elif [ ! -f "${installdir}/macos-setup.yml"]; then
     echo "Failed to find setup-macos (probably git clone failed or directory already contained something else)."
     exit 1
 else
