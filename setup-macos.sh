@@ -4,19 +4,18 @@
 echo "===================================================="
 echo "Setting up your mac using chaudhryjunaid/setup-macos"
 echo "This scrips installs pre-requisites and runs ansible"
-echo "===================================================="
+echo "====================================================\n"
 
-# Ensure command line tools are installed
 if ! xcode-select -p >/dev/null; then
     echo "Installing XCode Command-line Tools..."
 	xcode-select --install
 	read -p "Press [Enter] when Command-line Tools have been installed..."
 else
-    echo "✓ XCode Command-line tools are already installed"
+    echo "✓ XCode Command-line Tools are already installed"
 fi
 
 if ! xcode-select -p >/dev/null; then
-    echo "Command-line tools could not be installed. Please try running this script again!"
+    echo "Command-line Tools could not be installed. Please try running this script again!"
 fi
 
 if ! hash brew 2>/dev/null; then
@@ -29,9 +28,6 @@ fi
 if ! hash brew 2>/dev/null; then
     echo "Homebrew could not be installed. Please try running this script again!"
 fi
-
-echo "Updating brew..."
-brew update
 
 if ! hash ansible 2>/dev/null; then
     echo "Installing ansible..."
