@@ -25,6 +25,12 @@
       tags:
         - base
         - dotfiles
+    - name: create folders
+      import_role:
+        name: folders
+      tags:
+        - base
+        - folders
     - name: setup nodejs dev env
       import_role:
         name: nodejs

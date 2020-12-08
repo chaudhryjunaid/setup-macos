@@ -1,0 +1,14 @@
+- name: create ssh folder
+  file:
+    path: "{{ ansible_user_dir }}/.ssh"
+    state: directory
+
+- name: create projects folder
+  file:
+    path: "{{ ansible_user_dir }}/{{ projects_dir }}"
+    state: directory
+
+- name: create data folder
+  file:
+    path: "{{ ansible_user_dir }}/{{ data_dir }}"
+    state: directory
