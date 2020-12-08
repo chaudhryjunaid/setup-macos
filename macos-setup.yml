@@ -25,3 +25,9 @@
       tags:
         - base
         - dotfiles
+    - name: setup nodejs dev env
+      import_role:
+        name: nodejs
+      tags:
+        - development
+        - nodejs

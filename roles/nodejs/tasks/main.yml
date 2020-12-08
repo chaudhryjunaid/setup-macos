@@ -1,0 +1,4 @@
+- name: install nodejs
+  shell: curl -L https://git.io/n-install | bash -s -- -y 12.16.2
+  args:
+    creates: "{{ansible_user_dir}}/n"
