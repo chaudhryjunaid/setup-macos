@@ -19,3 +19,9 @@
       tags:
         - base
         - zsh
+    - name: copy dotfiles
+      import_role:
+        name: dotfiles
+      tags:
+        - base
+        - dotfiles

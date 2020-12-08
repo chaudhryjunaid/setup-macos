@@ -1,0 +1,20 @@
+- name: copy gitconfig
+  copy:
+    src: "./files/git/gitconfig"
+    dest: "{{ansible_user_dir}}/.gitconfig"
+    backup: yes
+- name: copy gitexcludes
+  copy:
+    src: "./files/git/gitexcludes"
+    dest: "{{ansible_user_dir}}/.gitexcludes"
+    backup: yes
+- name: copy editorconfig
+  copy:
+    src: "./files/editorconfig"
+    dest: "{{ansible_user_dir}}/.editorconfig"
+    backup: yes
+- name: copy liquidpromptrc
+  copy:
+    src: "./files/liquidpromptrc"
+    dest: "{{ansible_user_dir}}/.liquidpromptrc"
+    backup: yes

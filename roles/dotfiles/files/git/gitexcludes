@@ -1,0 +1,44 @@
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# specific git ignores
+.editorconfig
+.jsbeautifyrc
+
+# vim files
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+# # auto-generated tag files
+tags
+
+# Webstorm
+.idea
+
+# vscode
+.vscode
+
+# Vagrant
+Vagrantfile
+
+# Lint rules
+.eslintrc
+
+# Docker
+Dockerfile*
+.docker*
+
+
+# tern
+.tern-port
+

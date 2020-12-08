@@ -1,0 +1,17 @@
+[user]
+	name = Chaudhry Junaid Anwar
+	email = junaidanwar10@gmail.com
+[alias]
+	co = checkout
+[core]
+	excludesfile = ~/.gitexcludes
+	pager = less -F -X
+	editor = vim
+[push]
+	default = simple
+[diff]
+	tool = bc3
+[merge]
+	tool = bc3
+[mergetool "bc3"]
+	trustExitCode = true
