@@ -36,8 +36,6 @@ else
     echo "✓ Ansible is already installed"
 fi
 
-fi
-
 if ! hash ansible 2>/dev/null; then
     echo "Ansible could not be installed. Please try running this script again!"
 fi
