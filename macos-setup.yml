@@ -1,6 +1,5 @@
 ---
-- hosts: localhost
-  connection: local
+- hosts: thismac
   tasks:
     - name: setup macos
       import_role:
