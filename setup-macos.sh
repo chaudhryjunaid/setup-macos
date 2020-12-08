@@ -48,7 +48,7 @@ if [ ! -d "$installdir" ]; then
     mkdir -p $installdir
 fi
 
-if [ -z "$(ls -A -- "$installdir")" ]; then
+if [ -z $(ls -A -- "$installdir") ]; then
     echo "Cloning setup repo into $installdir"
     git clone https://github.com/chaudhryjunaid/setup-macos.git $installdir
 else if [ ! -d "$installdir/.git" ]; then
