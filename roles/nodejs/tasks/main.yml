@@ -1,4 +1,16 @@
+- name: download n-install
+  get_url:
+    url: https://git.io/n-install
+    dest: /tmp/n-install
+    mode: "744"
 - name: install nodejs
-  shell: curl -L https://git.io/n-install | bash -s -- -y 12.16.2
+  shell: cat /tmp/n-install | bash -s -- -y 12.16.2
   args:
     creates: "{{ansible_user_dir}}/n"
+- name: Install global NPM packages.
+  npm:
+    name: "{{ item }}"
+    state: present
+    global: true
+    executable: "{{ansible_user_dir}}/n/bin/npm"
+  with_items: "{{ npm_packages }}"
