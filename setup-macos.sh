@@ -65,7 +65,7 @@ fi
 
 echo "Starting playbook..."
 cd $installdir 
-#time ansible-playbook macos-setup.yml --verbose
+time ansible-playbook macos-setup.yml --verbose
 echo "Ansible finished. See  logs for status."
 
 exit 0
