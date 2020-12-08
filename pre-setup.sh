@@ -1,10 +1,11 @@
 #!/bin/bash
 # script to bootstrap setting up a mac with ansible 
 
-echo "===================================================="
-echo "Setting up your mac using chaudhryjunaid/setup-macos"
-echo "This scrips installs pre-requisites and runs ansible"
-echo "====================================================\n"
+echo "====================================================="
+echo "This script will:"
+echo "  - install pre-requisites"
+echo "  - clone chaudhryjunaid/setup-macos to the home dir"
+echo "=====================================================\n"
 
 if ! xcode-select -p >/dev/null; then
     echo "Installing XCode Command-line Tools..."
@@ -62,10 +63,5 @@ else
     git pull
     echo "✓ Playbook exists and has been updated"
 fi
-
-echo "Starting playbook..."
-cd $installdir 
-time ansible-playbook macos-setup.yml --verbose
-echo "Ansible finished. See  logs for status."
 
 exit 0
