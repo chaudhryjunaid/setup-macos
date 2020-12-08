@@ -1,0 +1,15 @@
+- name: Install brew taps
+  homebrew_tap:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ homebrew_taps }}"
+  
+- name: Install CLI packages
+  homebrew:
+    name: "{{ cli_packages }}"
+    state: latest
+
+- name: Install GUI packages
+  homebrew_cask:
+    name: "{{ gui_packages }}"
+    state: installed

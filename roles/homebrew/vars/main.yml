@@ -1,0 +1,39 @@
+---
+homebrew_taps:
+  - homebrew/core
+  - homebrew/cask
+  - homebrew/cask-fonts
+  - homebrew/cask-versions
+
+cli_packages:
+  - git
+  - vim
+  - zsh
+  - mysql@5.6
+  - redis
+  - wget
+  - tree
+  - the_silver_searcher
+  - jq
+  - inetutils
+  - gh
+  - curl
+  - go
+  - htop
+  - awscli
+  - mc
+  - screen
+  
+gui_packages:
+  - visual-studio-code
+  - sublime-text
+  - sequel-pro
+  - psequel
+  - virtualbox
+  - google-chrome
+  - firefox
+  - iterm2
+  - tunnelblick
+  - caffeine
+  - zoomus
+  - slack

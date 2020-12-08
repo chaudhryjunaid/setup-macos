@@ -1,6 +1,12 @@
 ---
 - hosts: localhost
   tasks:
-    - name: setup macos
+    - name: check os family
+      fail: msg="This playbook is only for macos!"
+      when: (ansible_facts['distribution'] != "MacOSX")
+    - name: check os version
+      fail: msg="Please update your MacOS to 10.15 or later!"
+      when: (ansible_distribution_version is version('10.15', '<'))
+    - name: install homebrew apps
       import_role:
-        name: setup_macos
+        name: homebrew
