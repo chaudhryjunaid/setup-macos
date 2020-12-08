@@ -1,4 +1,7 @@
-- name: Install brew taps
+- name: Update homebrew
+  command: "brew update"
+
+- name: Install homebrew taps
   homebrew_tap:
     name: "{{ item }}"
     state: present

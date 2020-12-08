@@ -4,6 +4,7 @@ homebrew_taps:
   - homebrew/cask
   - homebrew/cask-fonts
   - homebrew/cask-versions
+  - github/gh
 
 cli_packages:
   - git
@@ -23,6 +24,11 @@ cli_packages:
   - awscli
   - mc
   - screen
+  - cloc
+  - coreutils
+  - moreutils
+  - lua
+  - fzf
   
 gui_packages:
   - visual-studio-code
@@ -37,3 +43,5 @@ gui_packages:
   - caffeine
   - zoomus
   - slack
+  - ngrok
+  - istat-menus
