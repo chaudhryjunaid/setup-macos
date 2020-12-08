@@ -36,7 +36,7 @@ if [ ! -d "${installdir}/.git" ]; then
 fi
 
 cd $installdir 
-ansible-playbook -K -i ./hosts macos-setup.yml --verbose
+ansible-playbook macos-setup.yml --verbose
 
 echo "MacOS setup is now complete! Enjoy!"
 
