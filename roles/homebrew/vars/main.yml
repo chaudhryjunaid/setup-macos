@@ -29,6 +29,7 @@ cli_packages:
   - moreutils
   - lua
   - fzf
+  - liquidprompt
   
 gui_packages:
   - visual-studio-code

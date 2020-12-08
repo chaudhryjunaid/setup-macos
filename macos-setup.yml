@@ -10,3 +10,12 @@
     - name: install homebrew apps
       import_role:
         name: homebrew
+      tags:
+        - base
+        - homebrew
+    - name: setup zsh
+      import_role:
+        name: zsh
+      tags:
+        - base
+        - zsh

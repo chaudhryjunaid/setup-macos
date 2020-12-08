@@ -1,5 +1,7 @@
 - name: Update homebrew
-  command: "brew update"
+  homebrew:
+    state: latest
+    update_homebrew: yes
 
 - name: Install homebrew taps
   homebrew_tap:
