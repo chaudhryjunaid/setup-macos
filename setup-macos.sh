@@ -48,13 +48,13 @@ if [ ! -d "$installdir" ]; then
     mkdir -p $installdir
 fi
 
-if [ -z $(ls -A -- "$installdir") ]; then
+if [ -z "$(ls -A -- $installdir)" ]; then
     echo "Cloning setup repo into $installdir"
     git clone https://github.com/chaudhryjunaid/setup-macos.git "$installdir"
 elif [ ! -d "$installdir/.git" ]; then
     echo "Error: $installdir already contains some other files. Please empty this directory and try again!"
     exit 1
-elif [ ! -f "${installdir}/macos-setup.yml"]; then
+elif [ ! -f "${installdir}/macos-setup.yml" ]; then
     echo "Failed to find setup-macos (probably git clone failed or directory already contained something else)."
     exit 1
 else
