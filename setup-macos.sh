@@ -43,21 +43,26 @@ if ! hash ansible 2>/dev/null; then
 fi
 
 installdir=~/macos-setup
-echo "Checking if $installdir exists..."
+echo "Checking $installdir..."
 
-if [ ! -d $installdir ]; then
-    echo "Creating $installdir and cloning setup git repo in it..."
+if [ ! -d "$installdir" ]; then
+    echo "Creating $installdir..."
     mkdir -p $installdir
-    git clone https://github.com/chaudhryjunaid/setup-macos.git $installdir
-else
-    echo "✓ $installdir exists"
 fi
 
-if [ ! -f "${installdir}/macos-setup.yml"]; then
+if [ -z "$(ls -A -- "$installdir")" ]; then
+    echo "Cloning setup repo into $installdir"
+    git clone https://github.com/chaudhryjunaid/setup-macos.git $installdir
+else if [ ! -d "$installdir/.git" ]; then
+    echo "Error: $installdir already contains some other files. Please empty this directory and try again!"
+    exit 1
+else if [ ! -f "${installdir}/macos-setup.yml"]; then
     echo "Failed to find setup-macos (probably git clone failed or directory already contained something else)."
     exit 1
 else
-    echo "✓ Playbook exists"
+    echo "Existing setup repo found. Updating sources..."
+    git pull
+    echo "✓ Playbook exists and has been updated"
 fi
 
 echo "Starting playbook..."
