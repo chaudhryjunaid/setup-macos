@@ -1,0 +1,48 @@
+---
+- name: create ssh folder
+  file:
+    path: "{{ ansible_user_dir }}/.ssh"
+    state: directory
+
+- name: get user github email
+  pause:
+    prompt: "Please enter your github email address"
+  register: prompt
+
+- set_fact:
+    user_github_email: "{{ prompt.user_input | default(default_user_github_email, true) }}"
+
+- name: generate ssh key pair.
+  command: ssh-keygen -t rsa -b 4096 -C "{{ user_github_email }}" -N "" -f "{{ ansible_user_dir }}/.ssh/id_rsa"
+  args:
+    creates: "{{ ansible_user_dir }}/.ssh/id_rsa"
+
+- name: generate ssh config file
+  template:
+    src:  "./templates/ssh_config.j2"
+    dest: "{{ ansible_user_dir }}/.ssh/config"
+    mode: 0600
+    backup: yes
+    force: yes
+
+- name: add id_rsa to ssh-agent if not already added
+  shell: ssh-add -l | grep -q `ssh-keygen -lf "{{ ansible_user_dir }}/.ssh/id_rsa"  | awk '{print $2}'` || ssh-add -K "{{ ansible_user_dir }}/.ssh/id_rsa"
+  register: command_result
+  changed_when: "'Identity added' in command_result.stdout"
+
+- name: get user github auth token
+  pause:
+    prompt: "Please enter your github auth token (optional, for uploading public key to github)"
+  register: prompt
+
+- set_fact:
+    github_token: "{{ prompt.user_input }}"  
+
+- name: add id_rsa.pub to github.
+  github_key:
+    name: "{{ansible_user_id}} on {{ansible_hostname}}"
+    token: "{{ github_token }}"
+    pubkey: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa') }}"
+    state: present
+    force: no
+  when: github_token is defined and github_token != ""
