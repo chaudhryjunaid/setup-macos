@@ -1,0 +1,252 @@
+" Don't try to be vi compatible
+set nocompatible
+
+" Baseline
+set encoding=utf-8
+scriptencoding utf-8
+
+"set term=xterm-256color
+
+
+" Helps force plugins to load correctly when it is turned back on below
+filetype off
+
+
+function! InstallEditorConfig(info)
+  if a:info.status == 'installed' || a:info.force
+    !brew install editorconfig
+  endif
+endfunction
+function! InstallSilverSearcher(info)
+  if a:info.status == 'installed' || a:info.force
+    !brew install the_silver_searcher
+  endif
+endfunction
+
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim', { 'do': function('InstallSilverSearcher') }
+Plug 'vim-airline/vim-airline'
+Plug 'flazz/vim-colorschemes'
+Plug 'elzr/vim-json'
+Plug 'jiangmiao/auto-pairs' "Insert or delete brackets, parens, quotes in pair
+
+"Plug 'bronson/vim-trailing-whitespace'
+Plug 'airblade/vim-gitgutter'
+Plug 'editorconfig/editorconfig-vim', { 'do': function('InstallEditorConfig') }
+"Plug 'mhartington/oceanic-next'
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'NLKNguyen/papercolor-theme'
+
+call plug#end()
+
+" Turn on syntax highlighting
+filetype plugin indent on
+syntax on
+
+set t_Co=256   " This is may or may not needed.
+
+set background=dark
+
+colorscheme PaperColor
+"colorscheme lucius
+"let g:airline_theme='lucius'
+"colorscheme OceanicNext
+"let g:airline_theme='oceanicnext'
+"let g:enable_bold_font = 1
+"colorscheme hybrid_material
+"let g:airline_theme = 'hybrid'
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:ycm_auto_trigger = 0
+
+" NERDCommenter options
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" " Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" " Align line-wise comment delimiters flush left instead of following code
+" indentation
+" let g:NERDDefaultAlign = 'left'
+
+" " Set a language to use its alternate delimiters by default
+" let g:NERDAltDelims_java = 1
+
+" " Add your own custom formats or override the defaults
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" " Allow commenting and inverting empty lines (useful when commenting a
+" region)
+let g:NERDCommentEmptyLines = 1
+
+" " Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" editor config plugin settings
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+  cnoreabbrev ag Ack
+  cnoreabbrev aG Ack
+  cnoreabbrev Ag Ack
+  cnoreabbrev AG Ack
+endif
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = '\v[\/]\.(DS_Store|git|hg|svn|optimized|compiled|node_modules|bower_components)$'
+let g:ctrlp_max_depth = 40
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" | grep -v "`cat ~/.ctrlpignore`"'
+endif
+
+set timeoutlen=1000 ttimeoutlen=0
+
+" TODO: Pick a leader key
+"let mapleader = ","
+"nnoremap ,, ,
+
+" map jk and kj to escape
+"imap jk <esc>
+"imap kj <esc>
+
+" Security
+set modelines=0
+
+" Show line numbers
+set number
+
+" Show file stats
+set ruler
+
+" Blink cursor on error instead of beeping (grr)
+set visualbell
+
+set cpoptions+=$
+
+" Whitespace
+set wrap
+set textwidth=79
+set formatoptions=tcqrn1
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set noshiftround
+
+" Cursor motion
+set scrolloff=3
+set backspace=indent,eol,start
+set matchpairs+=<:> " use % to jump between pairs
+runtime! macros/matchit.vim
+
+" Move up/down editor lines
+"nnoremap j gj
+"nnoremap k gk
+
+" Allow hidden buffers
+set hidden
+
+set wildmenu
+" Rendering
+set ttyfast
+
+" Status bar
+set laststatus=2
+
+" Last line
+set showmode
+set showcmd
+
+set cursorline
+nmap <silent> <BS> :nohlsearch<CR>
+
+" Searching
+"nnoremap / /\v
+"vnoremap / /\v
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" autosave files when vim loses focus
+au FocusLost,WinLeave * :wa
+au FocusGained,BufEnter * :silent! !
+
+" Disable backup and swap files
+set nobackup
+set noswapfile
+
+"set autoread
+"au FocusGained,CursorHold,CursorHoldI * checktime
+
+" Use the OS clipboard
+"set clipboard=unnamed
+
+" Show matching brackets/parenthesis
+set showmatch
+
+" Don't blink when matching
+set matchtime=0
+
+" Folding
+"set foldmethod=syntax
+"set foldnestmax=10
+"set nofoldenable
+"set foldlevel=1
+
+" Make macros render faster (lazy draw)
+set lazyredraw
+
+
+" autoindent
+set autoindent
+
+"set shortmess+=I
+
+"map <leader><space> :let @/=''<cr> " clear search
+
+" Remap help key.
+"inoremap <F1> <ESC>:set invfullscreen<CR>a
+"nnoremap <F1> :set invfullscreen<CR>
+"vnoremap <F1> :set invfullscreen<CR>
+
+" Textmate holdouts
+
+" Formatting
+"map <leader>q gqip
+
+" Visualize tabs and newlines
+set listchars=tab:▸\ ,eol:¬
+set lcs+=space:·
+
+" Uncomment this to enable by default:
+set list " To enable by default
+" Or use your leader key + l to toggle on/off
+map <leader>l :set list!<CR> " Toggle tabs and EOL
+
+" Easy window navigation
+"map <C-h> <C-w>h
+"map <C-j> <C-w>j
+"map <C-k> <C-w>k
+"map <C-l> <C-w>l
+
+syntax enable
+

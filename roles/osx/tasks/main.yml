@@ -1,0 +1,17 @@
+
+- name: show status bar in finder
+  osx_defaults:
+    domain: com.apple.finder
+    key: ShowStatusBar
+    type: bool
+    value: true
+    state: present
+
+- name: show path bar in finder
+  osx_defaults:
+    domain: com.apple.finder
+    key: ShowPathBar
+    type: bool
+    value: true
+    state: present
+

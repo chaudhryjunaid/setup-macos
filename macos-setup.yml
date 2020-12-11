@@ -25,6 +25,18 @@
       tags:
         - base
         - dotfiles
+    - name: configure vim
+      import_role:
+        name: vim
+      tags:
+        - base
+        - vim
+    - name: configure osx
+      import_role:
+        name: osx
+      tags:
+        - base
+        - osx
     - name: create folders
       import_role:
         name: folders
