@@ -18,3 +18,9 @@ Or to run only a specifc task:
     cd ~/setup-macos
     time ansible-playbook macos-setup.yml --verbose --tags "homebrew,zsh,dotfiles,folders,nodejs"
 ```
+## Additional manual configuration required
+If you use vim, you will need to execute the following commands at the command-line:
+```
+vim +PlugInstall +qall
+vim '+PlugClean!' +qall
+```
