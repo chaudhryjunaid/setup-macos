@@ -13,11 +13,11 @@
   pause:
     prompt: "Please enter your github email address"
   register: prompt
-  when: not keyfile.stat.exists
+  when: not keyfile.stat.exists and (user_github_email is not defined or user_github_email == "")
 
 - set_fact:
     user_github_email: "{{ prompt.user_input | default(default_user_github_email, true) }}"
-  when: not keyfile.stat.exists
+  when: not keyfile.stat.exists and (user_github_email is not defined or user_github_email == "")
     
 
 - name: generate ssh key pair.

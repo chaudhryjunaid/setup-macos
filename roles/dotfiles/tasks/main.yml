@@ -1,25 +1,45 @@
+- name: get user name for git
+  pause:
+    prompt: "Please enter the name to use for git commits (leave empty if you have correctly configure the full name of your macos account)"
+  register: prompt
+  when: user_git_name is not defined or user_git_name == ""
+
+- set_fact:
+    user_git_name: "{{ prompt.user_input | default(lookup('pipe', 'id -F'), true) | default(ansible_user_id, true) }}"
+  when: user_git_name is not defined or user_git_name == ""
+
+- name: get user github email
+  pause:
+    prompt: "Please enter your github email address"
+  register: prompt
+  when: user_github_email is not defined or user_github_email == ""
+
+- set_fact:
+    user_github_email: "{{ prompt.user_input | default(default_user_github_email, true) }}"
+  when: user_github_email is not defined or user_github_email == ""
+
 - name: copy gitconfig
-  copy:
-    src: "./files/git/gitconfig"
+  template:
+    src: "gitconfig.j2"
     dest: "{{ansible_user_dir}}/.gitconfig"
     backup: yes
 - name: copy gitexcludes
   copy:
-    src: "./files/git/gitexcludes"
+    src: "gitexcludes"
     dest: "{{ansible_user_dir}}/.gitexcludes"
     backup: yes
 - name: copy editorconfig
   copy:
-    src: "./files/editorconfig"
+    src: "editorconfig"
     dest: "{{ansible_user_dir}}/.editorconfig"
     backup: yes
 - name: copy liquidpromptrc
   copy:
-    src: "./files/liquidpromptrc"
+    src: "liquidpromptrc"
     dest: "{{ansible_user_dir}}/.liquidpromptrc"
     backup: yes
 - name: copy tmux.conf
   copy:
-    src: "./files/tmux.conf"
+    src: "tmux.conf"
     dest: "{{ansible_user_dir}}/.tmux.conf"
     backup: yes
