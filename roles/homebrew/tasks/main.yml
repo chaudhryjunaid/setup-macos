@@ -1,18 +1,18 @@
-# - name: Update homebrew
-#   homebrew:
-#     state: latest
-#     update_homebrew: yes
+- name: Update homebrew
+  homebrew:
+    state: latest
+    update_homebrew: yes
 
-# - name: Install homebrew taps
-#   homebrew_tap:
-#     name: "{{ item }}"
-#     state: present
-#   with_items: "{{ homebrew_taps }}"
+- name: Install homebrew taps
+  homebrew_tap:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ homebrew_taps }}"
   
-# - name: Install CLI packages
-#   homebrew:
-#     name: "{{ cli_packages }}"
-#     state: latest
+- name: Install CLI packages
+  homebrew:
+    name: "{{ cli_packages }}"
+    state: latest
 
 - name: Install GUI packages
   homebrew_cask:

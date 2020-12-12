@@ -15,6 +15,17 @@
       when: (ansible_distribution_version is version('10.15', '<'))
       tags:
         - always
+    - name: check if homebrew is installed
+      stat:
+        path: /usr/local/bin/brew
+      register: brew_binary
+      tags:
+        - always
+    - name: fail if homebrew not installed
+      fail: msg="Homebrew is not installed! Please run the pre-requisites script in this repo before running this playbook!"
+      when: not brew_binary.stat.exists
+      tags:
+        - always
     - name: install homebrew apps
       import_role:
         name: homebrew
