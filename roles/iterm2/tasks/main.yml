@@ -5,8 +5,12 @@
   with_items: "{{ iterm2_fonts }}"
   when: iterm2_fonts is defined
 
-- name: ensure preferences are loaded from a custom folder.
-  command: "defaults write com.googlecode.iterm2 'PrefsCustomFolder' -string '{{ iterm2_preferences_custom_folder }}'"
+- name: ensure preferences are loaded from a custom folder
+  osx_defaults:
+    domain: com.googlecode.iterm2
+    key: PrefsCustomFolder
+    type: string
+    value: '{{ iterm2_preferences_custom_folder }}'
   when: iterm2_preferences_custom_folder is defined and iterm2_preferences_custom_folder
 
 - name: copy preferences file
