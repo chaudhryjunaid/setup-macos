@@ -31,12 +31,12 @@
     value: true
   notify: killall finder
 
-- name: show full posix path in titlebar
+- name: do not show full posix path in titlebar
   osx_defaults:
     domain: com.apple.finder
     key: _FXShowPosixPathInTitle
     type: bool
-    value: true
+    value: false
   notify: killall finder
 
 - name: keep folders on top
