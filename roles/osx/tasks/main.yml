@@ -1,17 +1,141 @@
+# finder defaults
+- name: show hidden files
+  osx_defaults:
+    domain: com.apple.finder
+    key: AppleShowAllFiles
+    type: bool
+    value: true
+  notify: killall finder
 
-- name: show status bar in finder
+- name: show file extensions
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleShowAllExtensions
+    type: bool
+    value: true
+  notify: killall finder
+
+- name: show status bar
   osx_defaults:
     domain: com.apple.finder
     key: ShowStatusBar
     type: bool
     value: true
-    state: present
+  notify: killall finder
 
-- name: show path bar in finder
+- name: show path bar
   osx_defaults:
     domain: com.apple.finder
-    key: ShowPathBar
+    key: ShowPathbar
     type: bool
     value: true
-    state: present
+  notify: killall finder
+
+- name: show full posix path in titlebar
+  osx_defaults:
+    domain: com.apple.finder
+    key: _FXShowPosixPathInTitle
+    type: bool
+    value: true
+  notify: killall finder
+
+- name: keep folders on top
+  osx_defaults:
+    domain: com.apple.finder
+    key: _FXSortFoldersFirst
+    type: bool
+    value: true
+  notify: killall finder
+
+- name: use column view by default
+  osx_defaults:
+    domain: com.apple.finder
+    key: FXPreferredViewStyle
+    type: string
+    value: "clmv"
+  notify: killall finder
+
+- name: set home folder as the default location for new windows
+  osx_defaults:
+    domain: com.apple.finder
+    key: "{{ item.key }}"
+    type: string
+    value: "{{ item.value }}"
+  with_items:
+    - key: NewWindowTarget
+      value: PfLo
+    - key: NewWindowTargetPath
+      value: "file://{{ ansible_user_dir }}"
+  notify: killall finder
+
+# dock
+- name: minimize to applications
+  osx_defaults:
+    domain: com.apple.dock
+    key: minimize-to-application
+    type: bool
+    value: true
+  notify:
+    killall dock
+
+- name: highlight stacks
+  osx_defaults:
+    domain: com.apple.dock
+    key: mouse-over-hilite-stack
+    type: bool
+    value: true
+  notify:
+    killall dock
+
+- name: show hidden apps
+  osx_defaults:
+    domain: com.apple.dock
+    key: showhidden
+    type: bool
+    value: true
+  notify:
+    killall dock
+
+- name: show indicators for open apps
+  osx_defaults:
+    domain: com.apple.dock
+    key: show-process-indicators
+    type: bool
+    value: true
+  notify:
+    killall dock
+
+# general
+- name: save to disk (not icloud) by default
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: NSDocumentSaveNewDocumentsToCloud
+    type: bool
+    value: false
+
+- name: disable smart quotes, dashes, autocorrect and auto-capitalization
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: "{{ item }}"
+    type: bool
+    value: false
+  with_items:
+    - NSAutomaticQuoteSubstitutionEnabled
+    - NSAutomaticDashSubstitutionEnabled
+    - NSAutomaticSpellingCorrectionEnabled
+    - NSAutomaticCapitalizationEnabled
+
+- name: enable key repeat delay
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: KeyRepeat
+    type: int
+    value: 2
+
+- name: set initial key repeat delay
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: InitialKeyRepeat
+    type: int
+    value: 15
 

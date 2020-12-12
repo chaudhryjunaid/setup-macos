@@ -1,0 +1,5 @@
+- name: killall dock
+  command: killall -HUP Dock
+
+- name: killall finder
+  command: killall Finder

@@ -30,6 +30,7 @@ cli_packages:
   - lua
   - fzf
   - liquidprompt
+  - speedtest-cli
   
 gui_packages:
   - visual-studio-code
