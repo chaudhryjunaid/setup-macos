@@ -1,0 +1,5 @@
+iterm2_fonts:
+  - url: https://github.com/powerline/fonts/blob/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf?raw=true
+  - url: https://github.com/powerline/fonts/blob/master/Inconsolata/Inconsolata%20for%20Powerline.otf?raw=true
+
+iterm2_preferences_custom_folder: "{{ ansible_user_dir }}/.iterm2"

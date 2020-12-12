@@ -37,6 +37,13 @@
       tags:
         - base
         - osx
+    - name: configure iterm2
+      import_role:
+        name: iterm2
+      tags:
+        - base
+        - iterm
+        - iterm2
     - name: create folders
       import_role:
         name: folders

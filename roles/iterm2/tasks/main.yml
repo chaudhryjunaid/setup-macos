@@ -1,0 +1,16 @@
+- name: ensure fonts are installed.
+  get_url:
+    url: "{{ item.url }}"
+    dest: "~/Library/Fonts"
+  with_items: "{{ iterm2_fonts }}"
+  when: iterm2_fonts is defined
+
+- name: ensure preferences are loaded from a custom folder.
+  command: "defaults write com.googlecode.iterm2 'PrefsCustomFolder' -string '{{ iterm2_preferences_custom_folder }}'"
+  when: iterm2_preferences_custom_folder is defined and iterm2_preferences_custom_folder
+
+- name: copy preferences file
+  copy:
+    src: "com.googlecode.iterm2.plist"
+    dest: "{{ iterm2_preferences_custom_folder }}/com.googlecode.iterm2.plist"
+  when: iterm2_preferences_custom_folder is defined and iterm2_preferences_custom_folder
