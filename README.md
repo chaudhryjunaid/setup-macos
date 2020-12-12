@@ -4,7 +4,7 @@ An ansible playbook to setup macos for developers. Please follow the below instr
 ## Requirements
 Tested on macos 10.15 or later
 
-## Setting pre-requisites
+## Setting up pre-requisites
 
 * Make sure you are on macos 10.15 or later. A clean install is preferred.
 
