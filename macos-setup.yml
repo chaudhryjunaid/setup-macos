@@ -1,5 +1,9 @@
 ---
 - hosts: localhost
+  vars_prompt:
+    - name: "ansible_become_password"
+      prompt: "Sudo password"
+      private: yes
   tasks:
     - name: check os family
       fail: msg="This playbook is only for macos!"

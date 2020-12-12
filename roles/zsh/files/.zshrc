@@ -87,6 +87,22 @@ else
   export EDITOR='vim'
 fi
 
+# Prefer US English and use UTF-8.
+export LANG='en_US.UTF-8';
+export LC_ALL='en_US.UTF-8';
+
+# Don’t clear the screen after quitting a manual page.
+export MANPAGER='less -X';
+
+# Avoid issues with `gpg` as installed via Homebrew.
+# https://stackoverflow.com/a/42265848/96656
+export GPG_TTY=$(tty);
+
+# 10ms for key sequences
+KEYTIMEOUT=1
+
+unalias mysql
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 

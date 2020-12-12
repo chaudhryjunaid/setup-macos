@@ -18,3 +18,8 @@
     src: "./files/liquidpromptrc"
     dest: "{{ansible_user_dir}}/.liquidpromptrc"
     backup: yes
+- name: copy tmux.conf
+  copy:
+    src: "./files/tmux.conf"
+    dest: "{{ansible_user_dir}}/.tmux.conf"
+    backup: yes

@@ -16,6 +16,15 @@ cli_packages:
   - tree
   - the_silver_searcher
   - jq
+  - ack
+  - aria2
+  - cmake
+  - cowsay
+  - tmux
+  - lynx
+  - elinks
+  - nmap
+  - binutils
   - inetutils
   - gh
   - curl
@@ -27,6 +36,8 @@ cli_packages:
   - cloc
   - coreutils
   - moreutils
+  - findutils
+  - readline
   - lua
   - fzf
   - liquidprompt
@@ -38,6 +49,8 @@ gui_packages:
   - sequel-pro
   - psequel
   - virtualbox
+  - virtualbox-extension-pack
+  - vagrant
   - google-chrome
   - firefox
   - iterm2
@@ -47,3 +60,6 @@ gui_packages:
   - slack
   - ngrok
   - istat-menus
+  - vlc
+  - licecap
+  - beyond-compare
