@@ -8,9 +8,13 @@
     - name: check os family
       fail: msg="This playbook is only for macos!"
       when: (ansible_facts['distribution'] != "MacOSX")
+      tags:
+        - always
     - name: check os version
       fail: msg="Please update your MacOS to 10.15 or later!"
       when: (ansible_distribution_version is version('10.15', '<'))
+      tags:
+        - always
     - name: install homebrew apps
       import_role:
         name: homebrew
