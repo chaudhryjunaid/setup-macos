@@ -24,4 +24,5 @@ If you use vim, you will need to execute the following commands at the command-l
 vim +PlugInstall +qall
 vim '+PlugClean!' +qall
 ```
-Additionally, you will need to set your terminal font to a powerline font for vim to display special characters nicely.
+Additionally, if you do not use iTerm, you will need to set your terminal font to a powerline font for vim to display special characters nicely. For iTerm this is done automatically via the ansible tag iterm..
+
