@@ -17,6 +17,7 @@ fi
 
 if ! xcode-select -p >/dev/null; then
     echo "Command-line Tools could not be installed. Please try running this script again!"
+    exit 1
 fi
 
 if ! hash brew 2>/dev/null; then
@@ -28,6 +29,7 @@ fi
 
 if ! hash brew 2>/dev/null; then
     echo "Homebrew could not be installed. Please try running this script again!"
+    exit 1
 fi
 
 if ! hash ansible 2>/dev/null; then
@@ -39,6 +41,7 @@ fi
 
 if ! hash ansible 2>/dev/null; then
     echo "Ansible could not be installed. Please try running this script again!"
+    exit 1
 fi
 
 installdir=~/macos-setup
