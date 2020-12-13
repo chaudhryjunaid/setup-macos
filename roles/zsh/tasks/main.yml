@@ -19,8 +19,8 @@
     dest: "{{ansible_user_dir}}/.oh-my-zsh/custom/plugins/zsh-autosuggestions/"
 
 - name: install oh-my-zsh
-  copy:
-    src: "./files/.zshrc"
+  template:
+    src: "zshrc"
     dest: "{{ansible_user_dir}}/.zshrc"
     backup: yes
 
