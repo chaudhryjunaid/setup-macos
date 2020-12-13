@@ -39,7 +39,7 @@ Tested on macos 10.15 or later
 * For a fresh machine, run the complete playbook:
   ```
       cd setup-macos
-      time ansible-playbook macos-setup.yml -vvv
+      time ansible-playbook macos-setup.yml -v
   ```
   The playbook will ask for sudo password and prompt for other information as well in some roles. Please keep an eye on the progress to see if any input is required.
 
