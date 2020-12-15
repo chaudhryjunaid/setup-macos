@@ -82,9 +82,11 @@ export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='{{ DEFAULT_EDITOR }}'
+  export VISUAL='{{ (EDITOR == "vim") | ternary ("vim", "nano") }}'
+  export EDITOR="$VISUAL"
 else
-  export EDITOR='{{ DEFAULT_EDITOR }}'
+  export VISUAL='{{ EDITOR }}'
+  export EDITOR="$VISUAL"
 fi
 
 # Prefer US English and use UTF-8.
@@ -110,8 +112,8 @@ KEYTIMEOUT=1
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="{{ DEFAULT_EDITOR }} ~/.zshrc"
-alias ohmyzsh="{{ DEFAULT_EDITOR }} ~/.oh-my-zsh"
+alias zshconfig="{{ EDITOR }} ~/.zshrc"
+alias ohmyzsh="{{ EDITOR }} ~/.oh-my-zsh"
 
 if [ -f /usr/local/share/liquidprompt ]; then
   . /usr/local/share/liquidprompt
