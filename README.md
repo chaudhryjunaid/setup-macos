@@ -1,8 +1,8 @@
 # setup-macos
-An ansible playbook to setup macos for developers. Please follow the below instructions to setup your mac for development
+An ansible playbook to setup macos for developers. Please follow the below instructions to setup your mac for development.
 
 ## Requirements
-Tested on macos 10.15 or later
+Tested on macos 10.15 or later.
 
 ## Setting up pre-requisites
 
@@ -67,5 +67,5 @@ Tested on macos 10.15 or later
   vim '+PlugClean!' +qall
   ```
 
-* Additionally, if you do not use iTerm, you will need to set your terminal font to a powerline font for vim to display special characters nicely. For iTerm this is done automatically via the ansible tag iterm..
+* Additionally, if you do not use iTerm, you will need to set your terminal font to a powerline font for vim to display special characters nicely. For iTerm this is done automatically via the ansible tag iterm.
 
