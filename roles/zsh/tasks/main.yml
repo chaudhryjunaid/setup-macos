@@ -24,6 +24,14 @@
     dest: "{{ansible_user_dir}}/.zshrc"
     backup: yes
 
-- name: set default shell to zsh
+- name: set default shell to zsh for root
   shell: chsh -s $(which zsh)
   become: yes
+  register: chsh_result
+  changed_when: '"chsh: no changes made" not in chsh_result.stderr and chsh_result.rc == 0'
+
+- name: set default shell to zsh for current user
+  shell: "chsh -s $(which zsh) {{ ansible_user_id }}"
+  become: yes
+  register: chsh_result
+  changed_when: '"chsh: no changes made" not in chsh_result.stderr and chsh_result.rc == 0'
