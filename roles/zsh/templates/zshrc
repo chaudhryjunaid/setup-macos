@@ -77,9 +77,6 @@ autoload -U compinit && compinit
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export VISUAL="{{ (EDITOR == 'vim') | ternary ('vim', 'nano') }}"
@@ -96,12 +93,37 @@ export LC_ALL='en_US.UTF-8';
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X';
 
+export PAGER='less'
+
+# Enable color in grep
+export GREP_OPTIONS='--color=auto'
+
 # Avoid issues with `gpg` as installed via Homebrew.
 # https://stackoverflow.com/a/42265848/96656
 export GPG_TTY=$(tty);
 
+# Enable persistent REPL history for `node`.
+export NODE_REPL_HISTORY=~/.node_history;
+# Allow 32³ entries; the default is 1000.
+export NODE_REPL_HISTORY_SIZE='32768';
+# Use sloppy mode by default, matching web browsers.
+export NODE_REPL_MODE='sloppy';
+
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8';
+
+
 # 10ms for key sequences
 KEYTIMEOUT=1
+
+# import new commands from the history file also in other zsh-session
+setopt sharehistory
+
+# Remove blank lines from history
+setopt hist_reduce_blanks
+
+# Remove all duplicates from history
+setopt hist_ignore_all_dups
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
