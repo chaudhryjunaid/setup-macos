@@ -82,10 +82,10 @@ export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export VISUAL='{{ (EDITOR == "vim") | ternary ("vim", "nano") }}'
+  export VISUAL="{{ (EDITOR == 'vim') | ternary ('vim', 'nano') }}"
   export EDITOR="$VISUAL"
 else
-  export VISUAL='{{ EDITOR }}'
+  export VISUAL="{{ EDITOR }}"
   export EDITOR="$VISUAL"
 fi
 
