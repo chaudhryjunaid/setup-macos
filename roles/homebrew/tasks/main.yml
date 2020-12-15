@@ -18,5 +18,5 @@
   homebrew_cask:
     name: "{{ gui_packages }}"
     state: installed
-    accept_external_apps: true
+    accept_external_apps: yes
     sudo_password: "{{ ansible_become_password }}"
