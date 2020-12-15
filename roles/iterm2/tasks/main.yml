@@ -13,6 +13,11 @@
     value: '{{ iterm2_preferences_custom_folder }}'
   when: iterm2_preferences_custom_folder is defined and iterm2_preferences_custom_folder
 
+- name: create iterm prefs folder
+  file:
+    path: "{{ iterm2_preferences_custom_folder }}"
+    state: directory
+
 - name: copy preferences file
   copy:
     src: "com.googlecode.iterm2.plist"
