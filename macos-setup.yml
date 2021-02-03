@@ -11,27 +11,10 @@
       tags:
         - always
     - name: check os version
-      fail: msg="Please update your MacOS to 10.15 or later!"
-      when: (ansible_distribution_version is version('10.15', '<'))
+      fail: msg="Please update your MacOS to 11 Big Sur or later!"
+      when: (ansible_distribution_version is version('11', '<'))
       tags:
         - always
-    - name: check if homebrew is installed
-      stat:
-        path: /usr/local/bin/brew
-      register: brew_binary
-      tags:
-        - always
-    - name: fail if homebrew not installed
-      fail: msg="Homebrew is not installed! Please run the pre-requisites script in this repo before running this playbook!"
-      when: not brew_binary.stat.exists
-      tags:
-        - always
-    - name: install homebrew apps
-      import_role:
-        name: homebrew
-      tags:
-        - base
-        - homebrew
     - name: setup zsh
       import_role:
         name: zsh
@@ -63,18 +46,12 @@
         - base
         - iterm
         - iterm2
-    - name: create folders
-      import_role:
-        name: folders
-      tags:
-        - base
-        - folders
-    - name: setup ssh key
-      import_role:
-        name: ssh
-      tags:
-        - credentials
-        - ssh
+    # - name: setup ssh key
+    #   import_role:
+    #     name: ssh
+    #   tags:
+    #     - credentials
+    #     - ssh
     - name: setup nodejs dev env
       import_role:
         name: nodejs

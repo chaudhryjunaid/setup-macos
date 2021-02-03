@@ -38,20 +38,3 @@
   shell: ssh-add -l | grep -q `ssh-keygen -lf "{{ ansible_user_dir }}/.ssh/id_rsa"  | awk '{print $2}'` || ssh-add -K "{{ ansible_user_dir }}/.ssh/id_rsa"
   register: command_result
   changed_when: "'Identity added' in command_result.stderr"
-
-- name: get user github auth token
-  pause:
-    prompt: "Please enter your github auth token (optional, for uploading public key to github)"
-  register: prompt
-
-- set_fact:
-    github_token: "{{ prompt.user_input }}"  
-
-- name: add id_rsa.pub to github.
-  github_key:
-    name: "{{ansible_user_id}} on {{ansible_hostname}}"
-    token: "{{ github_token }}"
-    pubkey: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
-    state: present
-    force: no
-  when: github_token is defined and github_token != ""
