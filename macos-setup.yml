@@ -46,12 +46,12 @@
         - base
         - iterm
         - iterm2
-    # - name: setup ssh key
-    #   import_role:
-    #     name: ssh
-    #   tags:
-    #     - credentials
-    #     - ssh
+    - name: setup ssh key
+      import_role:
+        name: ssh
+      tags:
+        - credentials
+        - ssh
     - name: setup nodejs dev env
       import_role:
         name: nodejs
