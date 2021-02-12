@@ -1,5 +1,5 @@
 # setup-macos
-An ansible playbook to setup macos for developers. Please follow the below instructions to setup your mac for development.
+Some shell scripts and an ansible playbook to setup macos for developers. Please follow the below instructions to setup your mac for development.
 
 ## Requirements
 For macos 11 Big Sur or later.
