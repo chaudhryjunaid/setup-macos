@@ -34,11 +34,19 @@ For macos 11 Big Sur or later.
   git clone https://github.com/chaudhryjunaid/setup-macos.git
   ```
 
+## Running brew installs
+* If you have not already from some earlier setup repo or manual process installed common applications, please run the following brew scripts to install common applications on your mac:
+  ```
+    cd ~/setup-macos
+    zsh ./brew/brew.sh # install basic apps
+    zsh ./brew/opt-brew.sh # install optional/additional apps
+  ```
+
 ## Running the playbook
 
 * For a fresh machine, run the complete playbook:
   ```
-      cd setup-macos
+      cd ~/setup-macos
       time ansible-playbook macos-setup.yml -v
   ```
   The playbook will ask for sudo password and prompt for other information as well in some roles. Please keep an eye on the progress to see if any input is required.
