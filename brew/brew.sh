@@ -1,6 +1,3 @@
-#install homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 # GUI apps
 brew install slack
 brew install visual-studio-code
