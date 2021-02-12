@@ -12,5 +12,7 @@
     name: "{{ item }}"
     state: present
     global: true
-    executable: "{{ansible_user_dir}}/n/bin/npm"
+    #executable: "{{ansible_user_dir}}/n/bin/npm"
   with_items: "{{ npm_packages }}"
+  environment:
+    PATH: "{{ansible_user_dir}}/n/bin:{{ ansible_env.PATH }}"

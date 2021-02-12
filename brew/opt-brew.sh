@@ -1,0 +1,14 @@
+# GUI apps
+brew install sublime-text
+brew install virtualbox
+brew install virtualbox-extension-pack
+brew install vagrant
+#brew install tunnelblick
+brew install viscosity
+brew install caffeine
+brew install ngrok
+brew install istat-menus
+brew install vlc
+brew install licecap
+brew install beyond-compare
+brew install goodsync
