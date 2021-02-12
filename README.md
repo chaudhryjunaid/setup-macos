@@ -2,11 +2,11 @@
 An ansible playbook to setup macos for developers. Please follow the below instructions to setup your mac for development.
 
 ## Requirements
-Tested on macos 10.15 or later.
+For macos 11 Big Sur or later.
 
 ## Setting up pre-requisites
 
-* Make sure you are on macos 10.15 or later. A clean install is preferred.
+* Make sure you are on macos 11 Big Sur or later. A clean install is preferred.
 
 * Install the macos Command-line tools:
   ```
@@ -67,5 +67,5 @@ Tested on macos 10.15 or later.
   vim '+PlugClean!' +qall
   ```
 
-* Additionally, if you do not use iTerm, you will need to set your terminal font to a powerline font for vim to display special characters nicely. For iTerm this is done automatically via the ansible tag iterm.
+* Additionally, you will need to set your terminal font (or just the non-ascii font for iTerm) to a powerline font for vim to display special characters nicely. This repo installs the fonts in macos. You will just need to select it from your terminal's preferences.
 
