@@ -21,6 +21,7 @@ brew install tree
 brew install jq
 brew install ack
 brew install cmake
+brew install make
 brew install cowsay
 brew install tmux
 brew install lynx
