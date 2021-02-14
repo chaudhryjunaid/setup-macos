@@ -5,6 +5,7 @@ Some shell scripts and an ansible playbook to setup macos for developers. Please
 For macos 11 Big Sur or later.
 
 ## Setting up pre-requisites
+* If you landed on this repo from [https://github.com/chaudhryjunaid/setup-apple-silicon-mac], go directly to the `Running the playbook section` and execute the playbook. Otherwise, please continue with the next step.
 
 * Make sure you are on macos 11 Big Sur or later. A clean install is preferred.
 
@@ -54,21 +55,19 @@ For macos 11 Big Sur or later.
 * If you already have a setup and want to execute/reset only part of the configuration done by this repo, please use the `--tags` or `--skip-tags` options:
   ```
       cd setup-macos
-      time ansible-playbook macos-setup.yml --verbose --tags "homebrew,zsh,dotfiles,folders,nodejs"
+      time ansible-playbook macos-setup.yml --verbose --tags "zsh,dotfiles,nodejs"
   ```
 * Following tags are supported:
-  * homebrew
   * zsh
   * dotfiles
   * vim
   * osx
   * iterm
-  * folders
   * ssh
   * nodejs
 
 ## Additional manual configuration required
-
+* Please continue with your apple silicon setup in [https://github.com/chaudhryjunaid/setup-apple-silicon-mac] if you came from there. Otherwise, please continue with the next step.
 * If you use vim, you will need to execute the following commands at the command-line:
   ```
   vim +PlugInstall +qall
