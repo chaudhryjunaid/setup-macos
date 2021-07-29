@@ -1,13 +1,14 @@
 # GUI apps
 brew install slack
 brew install visual-studio-code
+brew install sublime-text
 brew install zoom
 brew install iterm2
 brew install sequel-pro
-brew install psequel
 brew install google-chrome
 brew install firefox
 brew install wkhtmltopdf
+brew install tunnelblick
 
 # Command-line apps
 brew install the_silver_searcher
