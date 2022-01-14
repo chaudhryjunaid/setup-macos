@@ -2,9 +2,10 @@
 brew install slack
 brew install visual-studio-code
 brew install sublime-text
+brew install sublime-merge
 brew install zoom
 brew install iterm2
-brew install sequel-pro
+brew install sequel-ace
 brew install google-chrome
 brew install firefox
 brew install wkhtmltopdf
@@ -44,3 +45,12 @@ brew install git
 brew install fzf
 brew install awscli
 brew install ansible
+brew install bat
+brew install exa
+brew install git-delta
+brew install tldr
+brew install glances
+brew install procs
+brew install httpie
+brew install ncdu
+brew install duf
