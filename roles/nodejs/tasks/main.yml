@@ -4,7 +4,7 @@
     dest: /tmp/n-install
     mode: "744"
 - name: install nodejs
-  shell: cat /tmp/n-install | bash -s -- -y 12.16.2
+  shell: cat /tmp/n-install | bash -s -- -y lts
   args:
     creates: "{{ansible_user_dir}}/n"
 - name: Install global NPM packages.
