@@ -158,3 +158,5 @@ if [ -f /opt/homebrew/share/liquidprompt ]; then
 elif [ -f /usr/local/share/liquidprompt ]; then
   . /usr/local/share/liquidprompt
 fi
+
+eval "$(zoxide init zsh)"
