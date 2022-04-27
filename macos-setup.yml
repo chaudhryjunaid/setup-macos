@@ -39,22 +39,15 @@
       tags:
         - base
         - osx
-    - name: configure iterm2
-      import_role:
-        name: iterm2
-      tags:
-        - base
-        - iterm
-        - iterm2
     - name: setup ssh key
       import_role:
         name: ssh
       tags:
         - credentials
         - ssh
-    - name: setup nodejs dev env
-      import_role:
-        name: nodejs
-      tags:
-        - development
-        - nodejs
+    # - name: setup nodejs dev env
+    #   import_role:
+    #     name: nodejs
+    #   tags:
+    #     - development
+    #     - nodejs
