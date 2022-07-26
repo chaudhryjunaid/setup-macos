@@ -1,4 +1,4 @@
 npm_packages:
   - bunyan
-  - node-dev
-  - tldr
+  - nodemon
+  - pm2

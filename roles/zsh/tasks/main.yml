@@ -20,7 +20,7 @@
 
 - name: get local editor preference
   pause:
-    prompt: "Please enter the command name you want to use as your default editor (nano/vim/subl -w/code --wait --new-window)[default: vim]?"
+    prompt: "Please enter the command name you want to use as your default editor (nano/nvim/vim/subl -w/code --wait --new-window)[default: nvim]?"
   register: prompt
 
 - set_fact:

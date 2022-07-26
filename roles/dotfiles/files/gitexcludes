@@ -6,10 +6,6 @@ Desktop.ini
 ._*
 Thumbs.db
 
-# specific git ignores
-.editorconfig
-.jsbeautifyrc
-
 # vim files
 # swap
 [._]*.s[a-w][a-z]
@@ -27,17 +23,6 @@ tags
 
 # vscode
 .vscode
-
-# Vagrant
-Vagrantfile
-
-# Lint rules
-.eslintrc
-
-# Docker
-Dockerfile*
-.docker*
-
 
 # tern
 .tern-port

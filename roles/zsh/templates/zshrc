@@ -137,24 +137,10 @@ setopt hist_ignore_all_dups
 alias zshconfig="{{ EDITOR }} ~/.zshrc"
 alias ohmyzsh="{{ EDITOR }} ~/.oh-my-zsh"
 
-if [ "$(arch)" = "arm64" ]; then
-  if [[ -f /opt/homebrew/bin/brew ]]; then
-    eval $(/opt/homebrew/bin/brew shellenv);
-    if [[ -d /usr/local/bin && -d /usr/local/sbin ]]; then
-      export PATH="$PATH:/usr/local/bin:/usr/local/sbin";
-    fi
-  fi
-else
-  if [[ -f /usr/local/bin/brew ]]; then
-    eval $(/usr/local/bin/brew shellenv);
-    if [[ -d /opt/homebrew/bin && -d /opt/homebrew/sbin ]]; then
-      export PATH="$PATH:/opt/homebrew/bin:/opt/homebrew/sbin";
-    fi
-  fi
+if [[ -f /opt/homebrew/bin/brew ]]; then
+  eval $(/opt/homebrew/bin/brew shellenv);
 fi
 
 if [ -f /opt/homebrew/share/liquidprompt ]; then
   . /opt/homebrew/share/liquidprompt
-elif [ -f /usr/local/share/liquidprompt ]; then
-  . /usr/local/share/liquidprompt
 fi

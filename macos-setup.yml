@@ -11,8 +11,8 @@
       tags:
         - always
     - name: check os version
-      fail: msg="Please update your MacOS to 11 Big Sur or later!"
-      when: (ansible_distribution_version is version('11', '<'))
+      fail: msg="Please update your MacOS to 12 Monterey or later!"
+      when: (ansible_distribution_version is version('12', '<'))
       tags:
         - always
     - name: setup zsh
@@ -39,22 +39,15 @@
       tags:
         - base
         - osx
-    - name: configure iterm2
-      import_role:
-        name: iterm2
-      tags:
-        - base
-        - iterm
-        - iterm2
     - name: setup ssh key
       import_role:
         name: ssh
       tags:
         - credentials
         - ssh
-    - name: setup nodejs dev env
-      import_role:
-        name: nodejs
-      tags:
-        - development
-        - nodejs
+    # - name: setup nodejs dev env
+    #   import_role:
+    #     name: nodejs
+    #   tags:
+    #     - development
+    #     - nodejs
