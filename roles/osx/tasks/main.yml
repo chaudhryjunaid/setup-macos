@@ -78,14 +78,14 @@
   notify:
     killall dock
 
-- name: highlight stacks
-  osx_defaults:
-    domain: com.apple.dock
-    key: mouse-over-hilite-stack
-    type: bool
-    value: true
-  notify:
-    killall dock
+# - name: highlight stacks
+#   osx_defaults:
+#     domain: com.apple.dock
+#     key: mouse-over-hilite-stack
+#     type: bool
+#     value: true
+#   notify:
+#     killall dock
 
 - name: show hidden apps
   osx_defaults:
@@ -138,4 +138,3 @@
     key: InitialKeyRepeat
     type: int
     value: 15
-
