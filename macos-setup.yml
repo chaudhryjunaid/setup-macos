@@ -15,16 +15,16 @@
       when: (ansible_distribution_version is version('12', '<'))
       tags:
         - always
-    - name: setup zsh
-      import_role:
-        name: zsh
-      tags:
-        - zsh
     - name: setup dotfiles
       import_role:
         name: dotfiles
       tags:
         - dotfiles
+    - name: setup zsh
+      import_role:
+        name: zsh
+      tags:
+        - zsh
     - name: configure nvim
       import_role:
         name: vim
