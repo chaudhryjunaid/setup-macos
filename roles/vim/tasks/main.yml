@@ -1,4 +1,4 @@
-- name: create required .vim and vim-plug directories
+- name: create required nvim config and vim-plug directories
   file:
     path: "{{ item }}"
     state: directory
