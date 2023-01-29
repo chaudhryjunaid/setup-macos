@@ -7,12 +7,12 @@
   shell: cat /tmp/n-install | bash -s -- -y lts
   args:
     creates: "{{ansible_user_dir}}/n"
-- name: Install global NPM packages.
-  npm:
-    name: "{{ item }}"
-    state: present
-    global: true
-    #executable: "{{ansible_user_dir}}/n/bin/npm"
-  with_items: "{{ npm_packages }}"
-  environment:
-    PATH: "{{ansible_user_dir}}/n/bin:{{ ansible_env.PATH }}"
+# - name: Install global NPM packages.
+#   npm:
+#     name: "{{ item }}"
+#     state: present
+#     global: true
+#     #executable: "{{ansible_user_dir}}/n/bin/npm"
+#   with_items: "{{ npm_packages }}"
+#   environment:
+#     PATH: "{{ansible_user_dir}}/n/bin:{{ ansible_env.PATH }}"

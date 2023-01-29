@@ -19,35 +19,29 @@
       import_role:
         name: zsh
       tags:
-        - base
         - zsh
-    - name: copy dotfiles
+    - name: setup dotfiles
       import_role:
         name: dotfiles
       tags:
-        - base
         - dotfiles
-    - name: configure vim
+    - name: configure nvim
       import_role:
         name: vim
       tags:
-        - base
-        - vim
+        - nvim
     - name: configure osx
       import_role:
         name: osx
       tags:
-        - base
         - osx
     - name: setup ssh key
       import_role:
         name: ssh
       tags:
-        - credentials
         - ssh
-    # - name: setup nodejs dev env
-    #   import_role:
-    #     name: nodejs
-    #   tags:
-    #     - development
-    #     - nodejs
+    - name: setup nodejs
+      import_role:
+        name: nodejs
+      tags:
+        - nodejs
