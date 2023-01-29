@@ -35,11 +35,12 @@
         name: osx
       tags:
         - osx
-    - name: setup ssh key
-      import_role:
-        name: ssh
-      tags:
-        - ssh
+    # following role is disabled by default; user might already have ssh keys enabled
+    # - name: setup ssh key
+    #   import_role:
+    #     name: ssh
+    #   tags:
+    #     - ssh
     - name: setup nodejs
       import_role:
         name: nodejs
