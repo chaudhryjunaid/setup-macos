@@ -4,41 +4,11 @@
     state: directory
     mode: '0755'
   with_items:
-    - "{{ ansible_user_dir }}/.vim"
-    - "{{ ansible_user_dir }}/.vim/autoload"
-    - "{{ ansible_user_dir }}/.vim/plugged"
     - "{{ ansible_user_dir }}/.config/nvim"
     - "{{ ansible_user_dir }}/.local/share/nvim/site/autoload"
-
-- name: install vim-plug vim plugin manager
-  get_url:
-    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    dest: "{{ ansible_user_dir }}/.vim/autoload/plug.vim"
-    mode: '0640'
 
 - name: install vim-plug for neovim
   get_url:
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     dest: "{{ ansible_user_dir }}/.local/share/nvim/site/autoload/plug.vim"
     mode: '0640'
-
-- name: copy .vimrc
-  template:
-    src: vimrc.j2
-    dest: "{{ ansible_user_dir }}/.vimrc"
-    mode: '0640'
-    backup: yes
-
-- name: copy neovim config
-  template:
-    src: init.vim.j2
-    dest: "{{ ansible_user_dir }}/.config/nvim/init.vim"
-    mode: '0640'
-    backup: yes
-
-- name: copy .ctrlpignore
-  template:
-    src: ctrlpignore.j2
-    dest: "{{ ansible_user_dir }}/.ctrlpignore"
-    mode: '0640'
-    backup: yes
