@@ -5,6 +5,7 @@ Some shell scripts and an ansible playbook to setup macos for developers. For se
 For macos 13 Ventura or later.
 
 ## Setting up pre-requisites
+* Ensure you have ssh keys created and the public key uploaded to github
 
 * Install ansible:
   ```
@@ -14,7 +15,7 @@ For macos 13 Ventura or later.
 * Clone this repo:
   ```
   cd ~
-  git clone https://github.com/chaudhryjunaid/setup-macos.git
+  git clone git@github.com:chaudhryjunaid/setup-macos.git
   ```
 
 ## Running the playbook
@@ -29,22 +30,14 @@ For macos 13 Ventura or later.
 * If you already have a setup and want to execute/reset only part of the configuration done by this repo, please use the `--tags` or `--skip-tags` options:
   ```
       cd setup-macos
-      time ansible-playbook macos-setup.yml --verbose --tags "zsh,dotfiles,nodejs"
+      time ansible-playbook macos-setup.yml --verbose --tags "dotfiles,zsh"
   ```
 * Following tags are supported:
-  * zsh
   * dotfiles
+  * zsh
   * vim
   * osx
-  * iterm
-  * ssh
   * nodejs
 
 ## Additional manual configuration required
-* Please continue with your apple silicon setup in [https://github.com/chaudhryjunaid/setup-apple-silicon-mac] if you came from there. Otherwise, please continue with the next step.
-* If you use vim, you will need to execute the following commands at the command-line:
-  ```
-  vim +PlugInstall +qall
-  vim '+PlugClean!' +qall
-  ```
-  
+* Please continue with next steps in setup at [https://github.com/chaudhryjunaid/setup-apple-silicon-mac] if you came from there.
