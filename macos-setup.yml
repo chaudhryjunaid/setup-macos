@@ -15,12 +15,6 @@
       when: (ansible_distribution_version is version('12', '<'))
       tags:
         - always
-    # following role is disabled by default; user might already have ssh keys enabled
-    # - name: setup ssh key
-    #   import_role:
-    #     name: ssh
-    #   tags:
-    #     - ssh
     - name: setup dotfiles
       import_role:
         name: dotfiles

@@ -1,1 +1,0 @@
-default_user_github_email: "{{ ansible_user_id }}@{{ ansible_hostname }}"
