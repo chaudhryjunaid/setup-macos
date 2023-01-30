@@ -18,14 +18,6 @@
     repo: "https://github.com/zsh-users/zsh-autosuggestions"
     dest: "{{ansible_user_dir}}/.oh-my-zsh/custom/plugins/zsh-autosuggestions/"
 
-- name: get local editor preference
-  pause:
-    prompt: "Please enter the command name you want to use as your default editor (nano/nvim/vim/subl -w/code --wait --new-window)[default: nvim]?"
-  register: prompt
-
-- set_fact:
-    EDITOR: "{{ prompt.user_input | default(DEFAULT_EDITOR, true) }}"
-
 - name: install oh-my-zsh and configure .zshrc
   template:
     src: "zshrc"

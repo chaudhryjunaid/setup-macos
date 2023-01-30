@@ -129,12 +129,12 @@
   osx_defaults:
     domain: NSGlobalDomain
     key: KeyRepeat
-    type: int
+    type: float
     value: 2
 
 - name: set initial key repeat delay
   osx_defaults:
     domain: NSGlobalDomain
     key: InitialKeyRepeat
-    type: int
+    type: float
     value: 15
