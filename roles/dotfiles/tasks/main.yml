@@ -1,8 +1,75 @@
+- name: get user name for git
+  pause:
+    prompt: "Please enter the name to use for git commits (leave empty if you have correctly configure the full name of your macos account)"
+  register: prompt
+  when: user_git_name is not defined or user_git_name == ""
+- set_fact:
+    user_git_name: "{{ prompt.user_input | default(lookup('pipe', 'id -F'), true) | default(ansible_user_id, true) }}"
+  when: user_git_name is not defined or user_git_name == ""
+- name: get user default (non-work) github email
+  pause:
+    prompt: "Please enter your github email address"
+  register: prompt
+  when: user_default_github_email is not defined or user_default_github_email == ""
+- set_fact:
+    user_default_github_email: "{{ prompt.user_input | default(default_user_github_email, true) }}"
+  when: user_default_github_email is not defined or user_default_github_email == ""
+- name: get user work github email
+  pause:
+    prompt: "Please enter your github email address"
+  register: prompt
+  when: user_work_github_email is not defined or user_work_github_email == ""
+- set_fact:
+    user_work_github_email: "{{ prompt.user_input | default(default_user_github_email, true) }}"
+  when: user_work_github_email is not defined or user_work_github_email == ""
 - name: download dotfiles repo
   git:
     repo: "git@github.com:chaudhryjunaid/rcfiles.git"
     dest: "{{ansible_user_dir}}/rcfiles"
-- name: link dotfiles
-  shell: $HOME/rcfiles/setup.sh
-  args:
-    creates: "{{ansible_user_dir}}/.zshrc.custom"
+- name: create projects folder
+  file:
+    path: "{{ ansible_user_dir }}/projects"
+    state: directory
+
+- name: create data folder
+  file:
+    path: "{{ ansible_user_dir }}/data"
+    state: directory
+- name: create data folder
+  file:
+    path: "{{ ansible_user_dir }}/work"
+    state: directory
+- name: link nvim config
+  file:
+    src: "{{ansible_user_dir}}/rcfiles/nvim/init.vim"
+    dest: "{{ansible_user_dir}}/.config/nvim/init.vim"
+    state: link
+- name: link gitexcludes
+  file:
+    src: "{{ansible_user_dir}}/rcfiles/gitexcludes"
+    dest: "{{ansible_user_dir}}/.gitexcludes"
+    state: link
+- name: link gitconfig
+  file:
+    src: "{{ansible_user_dir}}/rcfiles/gitconfig"
+    dest: "{{ansible_user_dir}}/.gitconfig"
+    state: link
+- stat: 
+    path: "{{ansible_user_dir}}/.gitconfig-work"
+  register: stat_work_config
+- template:
+    src: gitconfig-work.j2
+    dest: "{{ansible_user_dir}}/.gitconfig-work"
+  when: not stat_work_config.stat.exists
+- stat:
+    path: "{{ansible_user_dir}}/.gitconfig-default"
+  register: stat_default_config
+- template:
+    src: gitconfig-default.j2
+    dest: "{{ansible_user_dir}}/.gitconfig-default"
+  when: not stat_default_config.stat.exists
+- name: link zshrc.custom
+  file:
+    src: "{{ansible_user_dir}}/rcfiles/zshrc.custom"
+    dest: "{{ansible_user_dir}}/.zshrc.custom"
+    state: link
