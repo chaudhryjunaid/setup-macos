@@ -35,7 +35,6 @@ For macos 13 Ventura or later.
 * Following tags are supported:
   * dotfiles
   * zsh
-  * vim
   * osx
   * nodejs
 

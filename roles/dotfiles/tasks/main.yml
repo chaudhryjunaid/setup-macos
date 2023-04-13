@@ -1,6 +1,6 @@
 - name: get user name for git
   pause:
-    prompt: "Please enter the name to use for git commits (leave empty if you have correctly configure the full name of your macos account)"
+    prompt: "Please enter the name to use for git commits"
   register: prompt
   when: user_git_name is not defined or user_git_name == ""
 - set_fact:
@@ -8,7 +8,7 @@
   when: user_git_name is not defined or user_git_name == ""
 - name: get user default (non-work) github email
   pause:
-    prompt: "Please enter your github email address"
+    prompt: "Please enter the personal email you want to use for repos outside the ~/work folder"
   register: prompt
   when: user_default_github_email is not defined or user_default_github_email == ""
 - set_fact:
@@ -16,7 +16,7 @@
   when: user_default_github_email is not defined or user_default_github_email == ""
 - name: get user work github email
   pause:
-    prompt: "Please enter your github email address"
+    prompt: "Please enter your work email address that you want to use for repos inside the ~/work folder"
   register: prompt
   when: user_work_github_email is not defined or user_work_github_email == ""
 - set_fact:
@@ -35,10 +35,23 @@
   file:
     path: "{{ ansible_user_dir }}/data"
     state: directory
-- name: create data folder
+- name: create work folder
   file:
     path: "{{ ansible_user_dir }}/work"
     state: directory
+- name: create required nvim config and vim-plug directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0755'
+  with_items:
+    - "{{ ansible_user_dir }}/.config/nvim"
+    - "{{ ansible_user_dir }}/.local/share/nvim/site/autoload"
+- name: install vim-plug for neovim
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: "{{ ansible_user_dir }}/.local/share/nvim/site/autoload/plug.vim"
+    mode: '0640'
 - name: link nvim config
   file:
     src: "{{ansible_user_dir}}/rcfiles/nvim/init.vim"

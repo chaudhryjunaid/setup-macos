@@ -11,8 +11,8 @@
       tags:
         - always
     - name: check os version
-      fail: msg="Please update your MacOS to 12 Monterey or later!"
-      when: (ansible_distribution_version is version('12', '<'))
+      fail: msg="Please update your MacOS version to 13 Ventura or later!"
+      when: (ansible_distribution_version is version('13', '<'))
       tags:
         - always
     - name: setup dotfiles
@@ -25,11 +25,6 @@
         name: zsh
       tags:
         - zsh
-    - name: configure nvim
-      import_role:
-        name: vim
-      tags:
-        - nvim
     - name: configure osx
       import_role:
         name: osx
