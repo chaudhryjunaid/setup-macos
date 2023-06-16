@@ -86,3 +86,8 @@
     src: "{{ansible_user_dir}}/rcfiles/zshrc.custom"
     dest: "{{ansible_user_dir}}/.zshrc.custom"
     state: link
+- name: link liquidpromptrc
+  file:
+    src: "{{ansible_user_dir}}/rcfiles/liquidpromptrc"
+    dest: "{{ansible_user_dir}}/.liquidpromptrc"
+    state: link
