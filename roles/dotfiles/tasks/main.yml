@@ -12,7 +12,7 @@
   register: prompt
   when: user_default_github_email is not defined or user_default_github_email == ""
 - set_fact:
-    user_default_github_email: "{{ prompt.user_input | default(default_user_github_email, true) }}"
+    user_default_github_email: "{{ prompt.user_input | default(user_fallback_github_email, true) }}"
   when: user_default_github_email is not defined or user_default_github_email == ""
 - name: get user work github email
   pause:
@@ -20,7 +20,7 @@
   register: prompt
   when: user_work_github_email is not defined or user_work_github_email == ""
 - set_fact:
-    user_work_github_email: "{{ prompt.user_input | default(default_user_github_email, true) }}"
+    user_work_github_email: "{{ prompt.user_input | default(user_fallback_github_email, true) }}"
   when: user_work_github_email is not defined or user_work_github_email == ""
 - name: download dotfiles repo
   git:
@@ -77,4 +77,3 @@
     src: "{{ansible_user_dir}}/rcfiles/vimrc"
     dest: "{{ansible_user_dir}}/.vimrc"
     state: link
-

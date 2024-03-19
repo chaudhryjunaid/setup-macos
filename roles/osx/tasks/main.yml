@@ -1,11 +1,12 @@
-# finder defaults
-- name: show hidden files
-  osx_defaults:
-    domain: com.apple.finder
-    key: AppleShowAllFiles
-    type: bool
-    value: true
-  notify: killall finder
+### finder defaults
+
+#- name: show hidden files
+#  osx_defaults:
+#    domain: com.apple.finder
+#    key: AppleShowAllFiles
+#    type: bool
+#    value: true
+#  notify: killall finder
 
 - name: show file extensions
   osx_defaults:
