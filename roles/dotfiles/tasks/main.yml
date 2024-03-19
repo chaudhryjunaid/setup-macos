@@ -75,7 +75,7 @@
 - name: link editorconfig
   file:
     src: "{{ansible_user_dir}}/rcfiles/editorconfig"
-    dest: "{{ansible_user_dir}}/editorconfig"
+    dest: "{{ansible_user_dir}}/.editorconfig"
     state: link
 - name: link vimrc
   file:
