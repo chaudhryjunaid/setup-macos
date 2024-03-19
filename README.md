@@ -1,5 +1,6 @@
 # setup-macos
-Some shell scripts and an ansible playbook to setup macos for developers. For setting up a new system, please see the README at  [https://github.com/chaudhryjunaid/setup-apple-silicon-mac].
+A ready-to-use ansible playbook to setup macos for general software development.
+This playbook should be used as an adjunct to the readme at: [https://github.com/chaudhryjunaid/setup-apple-silicon-mac].
 
 ## Requirements
 For macos 13 Ventura or later.
@@ -10,6 +11,7 @@ For macos 13 Ventura or later.
 * Install ansible:
   ```
   brew install ansible
+  # symlink /usr/local/bin/python to wherever python3 is installed in your system if the python binary is not available
   ```
 
 * Clone this repo:
@@ -39,4 +41,4 @@ For macos 13 Ventura or later.
   * nodejs
 
 ## Additional manual configuration required
-* Please continue with next steps in setup at [https://github.com/chaudhryjunaid/setup-apple-silicon-mac] if you came from there.
+* Please continue with next steps in setup at [https://github.com/chaudhryjunaid/setup-apple-silicon-mac] to complete your setup.
