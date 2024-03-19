@@ -30,7 +30,6 @@
   file:
     path: "{{ ansible_user_dir }}/projects"
     state: directory
-
 - name: create data folder
   file:
     path: "{{ ansible_user_dir }}/data"
@@ -39,10 +38,6 @@
   file:
     path: "{{ ansible_user_dir }}/work"
     state: directory
-- name: download nvchad config for neovim
-  git:
-    repo: "https://github.com/NvChad/starter"
-    dest: "{{ansible_user_dir}}/.config/nvim"
 - name: link gitexcludes
   file:
     src: "{{ansible_user_dir}}/rcfiles/gitexcludes"
@@ -76,5 +71,10 @@
   file:
     src: "{{ansible_user_dir}}/rcfiles/liquidpromptrc"
     dest: "{{ansible_user_dir}}/.liquidpromptrc"
+    state: link
+- name: link vimrc
+  file:
+    src: "{{ansible_user_dir}}/rcfiles/vimrc"
+    dest: "{{ansible_user_dir}}/.vimrc"
     state: link
 
