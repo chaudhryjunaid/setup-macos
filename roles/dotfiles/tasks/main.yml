@@ -72,6 +72,11 @@
     src: "{{ansible_user_dir}}/rcfiles/liquidpromptrc"
     dest: "{{ansible_user_dir}}/.liquidpromptrc"
     state: link
+- name: link editorconfig
+  file:
+    src: "{{ansible_user_dir}}/rcfiles/editorconfig"
+    dest: "{{ansible_user_dir}}/editorconfig"
+    state: link
 - name: link vimrc
   file:
     src: "{{ansible_user_dir}}/rcfiles/vimrc"
