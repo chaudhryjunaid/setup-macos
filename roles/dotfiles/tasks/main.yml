@@ -26,18 +26,17 @@
   git:
     repo: "git@github.com:chaudhryjunaid/rcfiles.git"
     dest: "{{ansible_user_dir}}/rcfiles"
-- name: create projects folder
+- name: Create required directories
   file:
-    path: "{{ ansible_user_dir }}/projects"
+    path: "{{ ansible_user_dir }}/{{ item }}"
     state: directory
-- name: create data folder
-  file:
-    path: "{{ ansible_user_dir }}/data"
-    state: directory
-- name: create work folder
-  file:
-    path: "{{ ansible_user_dir }}/work"
-    state: directory
+  with_items:
+    - data
+    - work
+    - projects
+    - .vim/undo
+    - .vim/backups
+    - .vim/swaps
 - name: link gitexcludes
   file:
     src: "{{ansible_user_dir}}/rcfiles/gitexcludes"
@@ -82,3 +81,4 @@
     src: "{{ansible_user_dir}}/rcfiles/vimrc"
     dest: "{{ansible_user_dir}}/.vimrc"
     state: link
+
