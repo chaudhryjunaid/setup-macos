@@ -11,7 +11,7 @@ For macos 13 Ventura or later.
 ## Initial steps
 - Setup your user account and log into your Apple account during initial system setup.
 - Update your macOS to the latest version available first thing as a best practice
-- Login to github and open the readme in this repo: `[https://github.com/chaudhryjunaid/setup-macos](https://github.com/chaudhryjunaid/setup-macos/edit/main/README.md)` on Safari to follow the rest of these steps.
+- Login to github and open the readme in this repo: [https://github.com/chaudhryjunaid/setup-macos](https://github.com/chaudhryjunaid/setup-macos/edit/main/README.md) on Safari to follow the rest of these steps.
 - Generate your SSH key by following [Github's instructions](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) and upload to [github keys page](https://github.com/settings/keys) after logging into github on Safari.
 - Install XCode command line tools
   ```
