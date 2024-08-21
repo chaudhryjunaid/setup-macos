@@ -11,7 +11,7 @@ For macos 13 Ventura or later.
 ## Initial steps
 - Setup your user account and log into your Apple account during initial system setup.
 - Update your macOS to the latest version available first thing as a best practice
-- Login to github and open the readme in this repo: `https://github.com/chaudhryjunaid/setup-apple-silicon-mac` on Safari to follow the rest of these steps.
+- Login to github and open the readme in this repo: `[https://github.com/chaudhryjunaid/setup-macos](https://github.com/chaudhryjunaid/setup-macos/edit/main/README.md)` on Safari to follow the rest of these steps.
 - Generate your SSH key by following [Github's instructions](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) and upload to [github keys page](https://github.com/settings/keys) after logging into github on Safari.
 - Install XCode command line tools
   ```
@@ -55,7 +55,7 @@ For macos 13 Ventura or later.
 - The scripts brew-cli.sh, brew-cask.sh, opt-brew.sh, etc, will install CLI and GUI apps for your new apple silicon mac including Google Chrome and others. You can omit corresponding installs by commenting out relevant lines. Please inspect and modify these scripts to ensure what you require is being installed only. You may even comment entire subscripts from install.sh if you require so.
 - Execute the following commands to run the configured installs:
   ```
-  cd setup-macos
+  cd setup-macos/brew
   ./install.sh
   ```
 
@@ -78,7 +78,7 @@ For macos 13 Ventura or later.
 
 # Appendix: 
 ## List of included software
-- Please look at the shell script files to find out what software is installed by default and what additional software is available by uncommenting lines in these scripts.
+- Please look at the brew shell script files to find out what software is installed by default and what additional software is available by uncommenting lines in these scripts.
 
 ## Manually Running the playbook
 * If you already have a setup and want to execute/reset only part of the configuration done by this repo, please use the `--tags` or `--skip-tags` options:
