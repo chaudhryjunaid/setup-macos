@@ -19,7 +19,7 @@ brew install lsd
 brew install tree
 brew install jq
 brew install ack
-brew install cmake
+#brew install cmake
 brew install htop
 brew install cloc
 brew install bat
