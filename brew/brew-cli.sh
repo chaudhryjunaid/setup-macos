@@ -18,7 +18,7 @@ brew install wget
 brew install lsd
 brew install tree
 brew install jq
-brew install ack
+#brew install ack
 #brew install cmake
 brew install htop
 brew install cloc
@@ -26,7 +26,7 @@ brew install bat
 brew install git-delta
 brew install tldr
 #brew install glances
-#brew install procs
+brew install procs
 
 #brew install ncdu
 #brew install duf

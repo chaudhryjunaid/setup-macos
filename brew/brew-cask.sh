@@ -6,7 +6,7 @@ brew install visual-studio-code
 #brew install soapui
 #brew install cyberduck
 #brew install slack
-#brew install zoom
+brew install zoom
 
 #brew install sublime-text
 #brew install sublime-merge
