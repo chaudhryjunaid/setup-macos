@@ -6,7 +6,6 @@ bash brew-cli.sh
 bash brew-cask.sh
 bash brew-pg.sh
 bash brew-python.sh
-bash brew-speedtest.sh
 bash fonts-brew.sh
 bash opt-brew.sh
 
