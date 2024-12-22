@@ -24,7 +24,6 @@
     state: directory
   with_items:
     - data
-    - work
     - projects
     - .vim/undo
     - .vim/backups
