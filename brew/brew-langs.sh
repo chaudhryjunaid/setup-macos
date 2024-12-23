@@ -1,4 +1,3 @@
-#brew install pycharm
-#brew install pycharm-ce
+# python pyenv
 brew install pyenv
 brew install pyenv-virtualenv
