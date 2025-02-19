@@ -66,6 +66,11 @@ For macos 13 Ventura or later.
   time ansible-playbook macos-setup.yml -v
   ```
   This playbook will prompt you for your name and email and your preferred command line editor during its execution so that it may configure the system appropriately. Please keep an eye on the run for these prompts.
+- Execute the following commands to reset your git user name and email:
+  ```
+  git config --global user.name "Your Name"
+  git config --global user.email "your.email@example.com"
+  ```
 - If you don't want to use vim as the default editor in terminal which this setup repo configures as default, please edit the file ~/.zshrc.custom and at the start of the file replace vim on line 3 with nano inside double quotes and nvim on line 6 with the string next to your editor of choice below (also inside double quotes):
   - vscode: "code --wait"
   - sublime-text: "subl -w"
