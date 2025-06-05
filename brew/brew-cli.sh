@@ -20,15 +20,11 @@ brew install aria2
 brew install wget
 
 # cli utils
-#brew install lsd
 brew install tree
 brew install jq
-#brew install ack
 brew install htop
 brew install cloc
-brew install bat
 brew install git-delta
-brew install tldr
 #brew install glances
 brew install procs
 

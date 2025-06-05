@@ -1,7 +1,7 @@
 # main apps
 brew install iterm2
 brew install google-chrome
-#brew install firefox
+brew install google-chrome@beta
 brew install slack
 brew install zoom
 
