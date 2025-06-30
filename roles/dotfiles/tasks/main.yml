@@ -51,3 +51,8 @@
     src: "{{ansible_user_dir}}/rcfiles/vimrc"
     dest: "{{ansible_user_dir}}/.vimrc"
     state: link
+- name: link tmux.conf
+  file:
+    src: "{{ansible_user_dir}}/rcfiles/tmux.conf"
+    dest: "{{ansible_user_dir}}/.tmux.conf"
+    state: link
