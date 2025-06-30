@@ -6,6 +6,8 @@ brew install gh
 brew install liquidprompt
 brew install fzf
 brew install ripgrep
+brew install tmux
+brew install tmuxinator
 
 # system utils
 brew install inetutils
@@ -22,6 +24,7 @@ brew install wget
 # cli utils
 brew install tree
 brew install jq
+#brew install yq
 brew install htop
 brew install cloc
 brew install git-delta
