@@ -4,7 +4,8 @@ brew install vim
 brew install git
 brew install git-delta
 brew install gh
-brew install liquidprompt
+# brew install liquidprompt
+brew install starship
 brew install fzf
 # brew install bat
 # brew install fd
@@ -19,7 +20,7 @@ brew install coreutils
 brew install findutils
 brew install inetutils
 
-# development tools
+# devops tools
 brew install ansible
 brew install awscli
 
@@ -29,7 +30,6 @@ brew install jq
 #brew install yq
 brew install htop
 brew install cloc
-#brew install glances
 brew install procs
 brew install aria2
 brew install wget
