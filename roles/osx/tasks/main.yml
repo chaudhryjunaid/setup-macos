@@ -48,13 +48,13 @@
     value: true
   notify: killall finder
 
-- name: use column view by default
-  osx_defaults:
-    domain: com.apple.finder
-    key: FXPreferredViewStyle
-    type: string
-    value: "clmv"
-  notify: killall finder
+# - name: use column view by default
+#   osx_defaults:
+#     domain: com.apple.finder
+#     key: FXPreferredViewStyle
+#     type: string
+#     value: "clmv"
+#   notify: killall finder
 
 - name: set home folder as the default location for new windows
   osx_defaults:
