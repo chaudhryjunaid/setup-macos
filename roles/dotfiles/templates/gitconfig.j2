@@ -2,47 +2,100 @@
   name = {{user_git_name}}
   email = {{user_default_github_email}}
 [core]
+  # editor = code --wait
   excludesfile = ~/.gitexcludes
   pager = delta
+[init]
+  defaultBranch = main
 [interactive]
   diffFilter = delta --color-only
 [delta]
   navigate = true
-[diff]
-  colorMoved = default
-  tool = vscode
-[difftool "sublime"]
-  cmd = subl -w --diff $LOCAL $REMOTE
+  line-numbers = true
+  syntax-theme = "Dracula"
+  side-by-side = true
+  features = decorations
+[delta "decorations"]
+  commit-decoration-style = bold yellow box ul
+  file-decoration-style = none
+  file-style = bold yellow ul
 [log]
   abbrevCommit = true
-[color]
-  ui = auto
-[color "branch"]
-  upstream = cyan
-[merge]
-  conflictstyle = diff3
 [fetch]
   prune = true
 [pull]
-#  rebase = true
+  rebase = true                 # Avoid merge commits on pull
 [push]
   default = current
-[branch]
-	# Show most recently changed branches first.
-	sort = -committerdate
+  autoSetupRemote = true  # Auto-create remote branch on first push
+[rebase]
+  autoStash = true              # Auto-stash/unstash during rebase
+  updateRefs = true             # Update dependent branches
+[rerere]
+  enabled = true
+# difftool/mergetool settings
+[diff]
+  # colorMoved = default
+  tool = cursor
+[difftool]
+  prompt = false
+[mergetool]
+  prompt = false
+  keepBackup = false
+[difftool "subl"]
+  cmd = subl -w --diff $LOCAL $REMOTE
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[difftool "cursor"]
+  cmd = cursor --wait --diff $LOCAL $REMOTE
+[difftool "vim"]
+  cmd = vim -d $LOCAL $REMOTE
+[difftool "bc"]
+  path = /Applications/Beyond Compare.app/Contents/MacOS/bcomp
+[merge]
+  conflictstyle = zdiff3
+  tool = cursor
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
+[mergetool "cursor"]
+  cmd = cursor --wait $MERGED
+[mergetool "vim"]
+  cmd = vim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[mergetool "bc"]
+  path = /Applications/Beyond Compare.app/Contents/MacOS/bcomp
+# alias settings
 [alias]
+  # diff/merge tool aliases
+  diffv = difftool --tool=vscode
+  diffc = difftool --tool=cursor
+  diffvi = difftool --tool=vim
+  diffbc = difftool --tool=bc
+  mergev = mergetool --tool=vscode
+  mergec = mergetool --tool=cursor
+  mergevi = mergetool --tool=vim
+  mergebc = mergetool --tool=bc
+  # Quick status
+  s = status --short --branch
+  # Branch management
+  recent = branch --sort=-committerdate -10
+  gone = !git for-each-ref --format='%(refname:short) %(upstream:track)' refs/heads | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D
+  # Stash with message
+  save = stash push -m
+  # Show files in last commit
+  last = show --name-only
+  # Cleanup merged branches -> needs update
+  # cleanup = !git branch --merged | grep -v '\\*\\|main\\|master\\|develop' | xargs -n 1 git branch -d
   # List available aliases
   aliases = !git config --get-regexp alias | sed -re 's/alias\\.(\\S*)\\s(.*)$/\\1 = \\2/g'
   # Display tree-like log, because default log is a pain…
   lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
   # Useful when you have to update your last commit
   # with staged files without editing the commit message.
-  oops = commit --amend --no-edit
-  # Ensure that force-pushing won't lose someone else's work (only mine).
-  push-with-lease = push --force-with-lease
+  recommit = commit --amend --no-edit
   # Edit last commit message
   reword = commit --amend
   # Undo last commit but keep changed files in stage
   uncommit = reset --soft HEAD~1
+  unstage = reset HEAD --          # Unstage files
   # Remove file(s) from Git but not from disk
   untrack = rm --cache --
