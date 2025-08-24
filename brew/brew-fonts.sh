@@ -1,16 +1,10 @@
 # reference: https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
 brew install fontconfig
-brew install font-jetbrains-mono
 brew install font-jetbrains-mono-nerd-font
-brew install font-fira-sans
-brew install font-fira-sans-nerd-font
 brew install font-fira-code-nerd-font
 brew install font-fira-mono-nerd-font
 brew install font-inconsolata-nerd-font
-brew install font-inconsolata-go-nerd-font
-brew install font-cascadia-code
 brew install font-cascadia-code-nf
-brew install font-cascadia-code-pl
 brew install font-cascadia-mono
 brew install font-meslo-lg-nerd-font
 brew install font-roboto-mono-nerd-font

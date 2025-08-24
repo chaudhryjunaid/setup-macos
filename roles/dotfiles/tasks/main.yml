@@ -24,22 +24,32 @@
     state: directory
   with_items:
     - data
+    - personal_data
     - projects
+    - backups
+    - .config/kitty
+    - .config/starship
+    - .config/tmuxinator
     - .vim/undo
     - .vim/backups
     - .vim/swaps
 - name: link gitexcludes
   file:
-    src: "{{ansible_user_dir}}/rcfiles/gitexcludes"
-    dest: "{{ansible_user_dir}}/.gitexcludes"
+    src: "{{ansible_user_dir}}/rcfiles/gitignore_global"
+    dest: "{{ansible_user_dir}}/.gitignore_global"
     state: link
 - template:
     src: gitconfig.j2
     dest: "{{ansible_user_dir}}/.gitconfig"
-- name: link zshrc.custom
+- name: link zshrc
   file:
-    src: "{{ansible_user_dir}}/rcfiles/zshrc.custom"
-    dest: "{{ansible_user_dir}}/.zshrc.custom"
+    src: "{{ansible_user_dir}}/rcfiles/zshrc"
+    dest: "{{ansible_user_dir}}/.zshrc"
+    state: link
+- name: link zshrc.local
+  file:
+    src: "{{ansible_user_dir}}/rcfiles/zshrc.local"
+    dest: "{{ansible_user_dir}}/.zshrc.local"
     state: link
 - name: link editorconfig
   file:

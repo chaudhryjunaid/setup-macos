@@ -31,8 +31,3 @@
         name: osx
       tags:
         - osx
-    - name: setup nodejs
-      import_role:
-        name: nodejs
-      tags:
-        - nodejs
