@@ -41,11 +41,6 @@
 - template:
     src: gitconfig.j2
     dest: "{{ansible_user_dir}}/.gitconfig"
-- name: link zshrc
-  file:
-    src: "{{ansible_user_dir}}/rcfiles/zshrc"
-    dest: "{{ansible_user_dir}}/.zshrc"
-    state: link
 - name: link zshrc.local
   file:
     src: "{{ansible_user_dir}}/rcfiles/zshrc.local"
