@@ -1,15 +1,16 @@
-brew install iterm2
+brew install --cask ghostty
 brew install google-chrome
 #brew install google-chrome@beta
 #brew install firefox
 brew install slack
-brew install zoom
-brew install loom
-brew install notion
+#brew install zoom
+#brew install loom
+#brew install notion
 #brew install vlc
 
+brew install orbstack
 brew install visual-studio-code
-#brew install sublime-text
+brew install sublime-text
 brew install sublime-merge
 brew install zed
 
